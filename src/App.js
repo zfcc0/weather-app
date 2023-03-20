@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Search from './components/search/Search';
+import WeatherResult from './components/weatherResult/WeatherResult';
+import { useState } from 'react';
 
 function App() {
+  const [weather, setWeather] = useState(undefined);
+  const [loading, setLoading] = useState(false);
+
+  const setWeatherfunc = (weatherData) => setWeather(weatherData);
+
+  const setLoadingfunc = (loading) => setLoading(loading);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header className="header">Weather App</header>
+        <Search setWeather={setWeatherfunc} setLoading={setLoadingfunc} />
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          weather && <WeatherResult weatherData={weather} />
+        )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.location {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.date {
+  margin-bottom: 0;
+}
+
+.weather-info {
+  list-style: none;
+  padding-left: 0;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+img {
+  width: 22%;
+}
+
+.temperature {
+  padding: 6px;
+  font-size: 22px;
+}
+
+.wind {
+  margin: 8px;
+  font-size: 18px;
+  font-style: italic;
+}
