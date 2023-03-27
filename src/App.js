@@ -18,7 +18,7 @@ function App() {
         <header className="header">Weather App</header>
         <Search setWeather={setWeatherfunc} setLoading={setLoadingfunc} />
         {loading ? (
-          <p>Loading...</p>
+          <p data-testid="app-loading">Loading...</p>
         ) : (
           weather && <WeatherResult weatherData={weather} />
         )}

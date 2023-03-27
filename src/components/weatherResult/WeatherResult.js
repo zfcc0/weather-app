@@ -13,21 +13,23 @@ const options = {
 };
 
 const WeatherResult = ({ weatherData }) => {
+  // console.log(weatherData);
   const { location, current } = weatherData;
   const dateTime = new Date(location.localtime);
-  console.log(weatherData);
 
   return (
-    <div className="weather-container">
+    <div data-testid="weather-result">
       <h2 className="location">
         {location.name}, {location.country}
       </h2>
-      <p className="date">{dateTime.toLocaleDateString('en-AU', options)}</p>
+      <p className="date" data-testid="weather-date">
+        {dateTime.toLocaleDateString('en-AU', options)}
+      </p>
 
       <ul className="weather-info">
         <li className="weather">
           <img alt="weather icon" src={current.condition.icon} />
-          <p>{current.condition.text}</p>
+          <p data-testid="weather-condition">{current.condition.text}</p>
         </li>
         <li className="temperature">Temperature: {current.temp_c}°C</li>
         <li className="wind">Wind Speed: {current.wind_kph} m/s</li>
